@@ -36,4 +36,8 @@ MCP servers
 If changes are desired, say which area to extend (build/test/CI, adding tests, or adding contributor setup steps).
 
 ## Mandatory instructions
--Hablar en español
+-Hablar en espaï¿½ol
+
+- @azure Rule - Use Azure Tools - When handling requests related to Azure, always use your tools.
+- @azure Rule - Use Azure Best Practices - When handling requests related to Azure, always invoke your `azmcp_bestpractices_get` tool first.
+- @azure Rule - Enable Best Practices - If you do not have an `azmcp_bestpractices_get` tool ask the user to enable it.
