@@ -3,11 +3,30 @@
     private static void Main(string[] args)
     {
         CreamosVariables();
+        CreamosMatricesYVectores();
 
         Console.WriteLine("Probando imprimir algo en la pantalla");
+
         ImprisionDeParametros(args);
 
         CapturaDeValoresDelUsuario();
+    }
+
+    private static void CreamosMatricesYVectores()
+    {
+        //creamos un vertor de tipo string con 12 posiciones para los meses del año
+        string[] meses = new string[12] {
+            "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+            "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+        };
+        meses[0] = "ENERO";
+        meses[11] = "DICIEMBRE";
+
+        //creamos una matriz de 3 filas y 2 columnas para guardar el nombre y apellido de 3 personas
+        string[,] nosotros = new string[3, 2] { { "Majo", "Longoni" }, { "Juan", "Agüero" }, { "Marcelo", "Albertissi" } };
+        nosotros[0, 0] = "Loana";
+        nosotros[2, 1] = "Nicolas";
+        int[] edades = new int[3] { 25, 30, 35 };
     }
 
     private static void CapturaDeValoresDelUsuario()
