@@ -1,4 +1,6 @@
-﻿public class Program
+﻿using Consola.Class;
+
+public class Program
 {
     private static void Main(string[] args)
     {
@@ -9,7 +11,24 @@
 
         ImprisionDeParametros(args);
 
-        CapturaDeValoresDelUsuario();
+        //CapturaDeValoresDelUsuario();
+        CreamosAlumnosEImprimimosSuFichaDeDatos();
+
+    }
+
+    private static void CreamosAlumnosEImprimimosSuFichaDeDatos()
+    {
+       Alumno alumno = new Alumno("Tobias", "Orecchia", 12345678, new DateOnly(1990, 5, 15));
+        Console.WriteLine(alumno.ImpresionFichaDeDatos());
+
+        Alumno alumno2 = new Alumno("Sofia", "Gomez", 87654321, new DateOnly(1995, 10, 20));
+        Console.WriteLine(alumno.ImpresionFichaDeDatos());
+
+        Alumno alumno3 = new Alumno("Federico", "Perez", 11223344, new DateOnly(1985, 3, 10));
+        Console.WriteLine(alumno.ImpresionFichaDeDatos());
+
+        //imprimimos la cantidad de instancias de alumnos creadas utilizando el metodo estatico de la clase alumno
+        Console.WriteLine(Alumno.ImprimirCantidadDeInstancias());
     }
 
     private static void CreamosMatricesYVectores()
