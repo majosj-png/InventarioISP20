@@ -26,12 +26,15 @@ public class Program
         alumno1.AgregarNota(8);
         alumno1.AgregarNota(7.5);
         alumno1.AgregarNota(9);
+        alumno1.AgregarNota(3);
+        alumno1.AgregarNota(4);
 
         string nombreCompleto = alumno1.ObtenerNombreCompleto();
         int cantidadNotas = alumno1.ObtenerCantidadDeNotas();
         double promedio = alumno1.CalcularPromedio();
         bool aprobado = alumno1.EstaAprobado();
         char inicial = alumno1.ObtenerInicial();
+        int materiasDesaprobadas = alumno1.ContarMateriasDesaprobadas();   
         DateTime fechaConsulta = alumno1.ObtenerFechaConsulta();
         List<double> notas = alumno1.ObtenerNotas();
 
@@ -41,6 +44,7 @@ public class Program
         Console.WriteLine("¿Está aprobado?: " + aprobado);
         Console.WriteLine("Inicial: " + inicial);
         Console.WriteLine("Fecha de consulta: " + fechaConsulta);
+        Console.WriteLine("Materias desaprobadas: "+ materiasDesaprobadas);
 
 
     }

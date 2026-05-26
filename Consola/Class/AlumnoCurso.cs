@@ -38,6 +38,17 @@
             return notas.Count;
         }
 
+        public int ContarMateriasDesaprobadas()
+        {
+            int materiasDesaprobadas = 0;
+            foreach (double nota in notas)
+            {
+                if (nota < 6)
+                    materiasDesaprobadas++;
+            }
+            return materiasDesaprobadas;
+        }
+
         // Método que devuelve double
         public double CalcularPromedio()
         {
