@@ -12,8 +12,20 @@ public class Program
         ImprisionDeParametros(args);
 
         //CapturaDeValoresDelUsuario();
-        CreamosAlumnosEImprimimosSuFichaDeDatos();
+        //CreamosAlumnosEImprimimosSuFichaDeDatos();
+        
+          CreamosEstudantesEImprimimosSuSaludo();
 
+    }
+
+    private static void CreamosEstudantesEImprimimosSuSaludo()
+    {
+        Estudiante estudiante1 = new Estudiante();
+        estudiante1.Nombre = "Tobias Longoni";
+        estudiante1.Edad = 30;
+        estudiante1.Domicilio = "Calle Falsa 123";
+        Console.WriteLine(estudiante1.DatosPersonales);
+        //estudiante1.Saludar();
     }
 
     private static void CreamosAlumnosEImprimimosSuFichaDeDatos()
@@ -67,9 +79,11 @@ public class Program
     
     private static void CreamosVariables()
     {
+        //declaramos una variable de tipo entera 
         int numero = 10;
+        //declaracion de una variable de tipo string
         int numero2 = 20;
-
+        //asignamos un valor a la variable numero2
         numero2 = 20;
         int numero3 = 30;
     }
