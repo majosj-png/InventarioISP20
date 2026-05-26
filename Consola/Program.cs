@@ -13,8 +13,35 @@ public class Program
 
         //CapturaDeValoresDelUsuario();
         //CreamosAlumnosEImprimimosSuFichaDeDatos();
-        
-          CreamosEstudantesEImprimimosSuSaludo();
+
+        //CreamosEstudantesEImprimimosSuSaludo();
+        ProbamosMetodosConDiferentesValoresDeRetorno();
+
+    }
+
+    private static void ProbamosMetodosConDiferentesValoresDeRetorno()
+    {
+        AlumnoCurso alumno1 = new AlumnoCurso("Lucía", "Gómez", 19);
+
+        alumno1.AgregarNota(8);
+        alumno1.AgregarNota(7.5);
+        alumno1.AgregarNota(9);
+
+        string nombreCompleto = alumno1.ObtenerNombreCompleto();
+        int cantidadNotas = alumno1.ObtenerCantidadDeNotas();
+        double promedio = alumno1.CalcularPromedio();
+        bool aprobado = alumno1.EstaAprobado();
+        char inicial = alumno1.ObtenerInicial();
+        DateTime fechaConsulta = alumno1.ObtenerFechaConsulta();
+        List<double> notas = alumno1.ObtenerNotas();
+
+        Console.WriteLine("Nombre completo: " + nombreCompleto);
+        Console.WriteLine("Cantidad de notas: " + cantidadNotas);
+        Console.WriteLine("Promedio: " + promedio);
+        Console.WriteLine("¿Está aprobado?: " + aprobado);
+        Console.WriteLine("Inicial: " + inicial);
+        Console.WriteLine("Fecha de consulta: " + fechaConsulta);
+
 
     }
 
