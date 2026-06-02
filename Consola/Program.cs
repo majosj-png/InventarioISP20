@@ -17,19 +17,26 @@ public class Program
         //CreamosEstudantesEImprimimosSuSaludo();
         // ProbamosMetodosConDiferentesValoresDeRetorno();
 
-        //Ejercicio de la clase persona
-        Ejercicio1();
 
-        
-
+        //Ejercicio1();
+        Ejecicio2();
+    }    
+    private static void Ejecicio2()
+    {
+        Bicicleta bicicleta1 = new();
+        bicicleta1.velocidad = 20;
+        bicicleta1.tieneCampanilla = true;
+        Console.WriteLine($"La bicicleta tiene una velocidad de {bicicleta1.velocidad} y {(!bicicleta1.tieneCampanilla?"no":"")}tiene campanilla");
     }
+
 
     private static void Ejercicio1()
     {
         Persona persona1 = new();
         persona1.nombre = "Tobias";
-        persona1.edad = 30;
-        Console.WriteLine($"Nombre: {persona1.nombre}, Edad: {persona1.edad}");
+        //persona1.edad = 30;
+        Console.WriteLine($"Nombre: {persona1.nombre}"/*, Edad: {persona1.edad}"*/);
+        persona1.CumplirAnios();
 
     }
 

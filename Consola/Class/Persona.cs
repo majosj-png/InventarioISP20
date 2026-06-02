@@ -9,8 +9,14 @@ namespace Consola.Class
     public class Persona
     {
         public string nombre = string.Empty;
-        public int edad = 0;
+        private int edad = 0;
+        public void CumplirAnios()
+        {
+            edad++;
+            Console.WriteLine($"¡Feliz cumpleaños, {nombre}! Ahora tienes {edad} años.");
+        }
 
     }
+    
 
 }
