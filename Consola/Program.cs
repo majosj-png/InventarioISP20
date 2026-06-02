@@ -4,18 +4,32 @@ public class Program
 {
     private static void Main(string[] args)
     {
-        CreamosVariables();
-        CreamosMatricesYVectores();
+        //CreamosVariables();
+        //CreamosMatricesYVectores();
 
-        Console.WriteLine("Probando imprimir algo en la pantalla");
+        //Console.WriteLine("Probando imprimir algo en la pantalla");
 
-        ImprisionDeParametros(args);
+        //ImprisionDeParametros(args);
 
         //CapturaDeValoresDelUsuario();
         //CreamosAlumnosEImprimimosSuFichaDeDatos();
 
         //CreamosEstudantesEImprimimosSuSaludo();
-        ProbamosMetodosConDiferentesValoresDeRetorno();
+        // ProbamosMetodosConDiferentesValoresDeRetorno();
+
+        //Ejercicio de la clase persona
+        Ejercicio1();
+
+        
+
+    }
+
+    private static void Ejercicio1()
+    {
+        Persona persona1 = new();
+        persona1.nombre = "Tobias";
+        persona1.edad = 30;
+        Console.WriteLine($"Nombre: {persona1.nombre}, Edad: {persona1.edad}");
 
     }
 

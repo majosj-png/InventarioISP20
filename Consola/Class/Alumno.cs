@@ -29,6 +29,7 @@ namespace Consola.Class
         //metodo para imprimir la ficha de datos del alumno
         public string ImpresionFichaDeDatos()
         {
+            Console.WriteLine($"Cantidad de instancias de alumnos: {instamcias_de_alumnos}"); //imprimimos la cantidad de instancias de alumnos
             return $"Nombre: {nombre} {apellido}\n DNI: {dni}\n Fecha de Nacimiento: {fechaNacimiento}";
 
         }
