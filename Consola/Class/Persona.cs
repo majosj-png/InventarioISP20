@@ -15,6 +15,10 @@ namespace Consola.Class
             edad++;
             Console.WriteLine($"¡Feliz cumpleaños, {nombre}! Ahora tienes {edad} años.");
         }
+        public virtual void Hablar()
+        {
+            Console.WriteLine("Hola");
+        }
 
     }
     

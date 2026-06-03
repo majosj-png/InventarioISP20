@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Consola.Class
 {
-    public class Estudiante
+    public class Estudiante : Persona
     { 
        //public string Nombre { get; set; } //propiedad autoimplementada para almacenar el nombre del estudiante
 
-        private string nombre= string.Empty;//campo privado para almacenar el nombre del estudiante
+        //private string nombre= string.Empty;//campo privado para almacenar el nombre del estudiante
 
         public string Nombre //propiedad para acceder al campo privado nombre
         {
@@ -36,6 +36,10 @@ namespace Consola.Class
             {
                 Console.WriteLine($"Hola, soy el estudiante {this.Nombre} y tengo {this.Edad} años");
             }
-        
+        public override void Hablar()
+        {
+            Console.WriteLine("Hola, soy un estudiante");
+        }
+
     }
 }

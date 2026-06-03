@@ -19,8 +19,24 @@ public class Program
 
 
         //Ejercicio1();
-        Ejecicio2();
-    }    
+        //Ejecicio2();
+         EjercicioFinal();
+    }
+
+    private static void EjercicioFinal()
+    {
+        Persona[] grupo = new Persona[2];
+        Persona persona1 = new();
+        persona1.nombre = "Tobias";
+        Estudiante estudiante1 = new();
+        grupo[0] = persona1;
+        grupo[1] = estudiante1;
+        foreach (Persona persona in grupo)
+        {
+            persona.Hablar();
+        }
+    }
+
     private static void Ejecicio2()
     {
         Bicicleta bicicleta1 = new();
