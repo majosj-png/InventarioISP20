@@ -1,4 +1,5 @@
 ﻿using Desktop.Models;
+using DotNetEnv;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,11 +17,13 @@ namespace Desktop.Services
 
         public ClientesService()
         {
+            Env.Load("../../../");
+            var apikey = Environment.GetEnvironmentVariable("apikey_supabase");
             // Inicializar el HttpClient y configurar la base address y los headers necesarios
             httpClient = new HttpClient();
             httpClient.BaseAddress = new Uri(urlApi);
             // agregar la apikey y el header de aceptacion de json
-            httpClient.DefaultRequestHeaders.Add("apikey", "sb_secret_b3dQLr5PfKBWmGh8U5ZShw_MB3lPPsv");
+            httpClient.DefaultRequestHeaders.Add("apikey",apikey);
             httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
         }
 
