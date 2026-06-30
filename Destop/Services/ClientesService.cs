@@ -1,4 +1,5 @@
 ﻿using Desktop.Models;
+using DotNetEnv;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,15 +14,11 @@ namespace Desktop.Services
     {
         HttpClient httpClient;
         const string urlApi = "https://mayclnkieddfcmtdlcuc.supabase.co/rest/v1/clientes"; // Endpoint
-
+        JsonSerializerOptions options;
         public ClientesService()
         {
-            // Inicializar el HttpClient y configurar la base address y los headers necesarios
-            httpClient = new HttpClient();
-            httpClient.BaseAddress = new Uri(urlApi);
-            // agregar la apikey y el header de aceptacion de json
-            httpClient.DefaultRequestHeaders.Add("apikey", "sb_secret_b3dQLr5PfKBWmGh8U5ZShw_MB3lPPsv");
-            httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
+            httpClient = SettingHttpClient();
+            SettingJsonSerializer();
         }
 
         public async Task<List<Cliente>?> GetAllAsync()
@@ -75,13 +72,6 @@ namespace Desktop.Services
         {
             try
             {
-                // Configuramos las opciones de serialización para ignorar propiedades nulas y hacer que la búsqueda de propiedades sea insensible a mayúsculas
-                var options = new JsonSerializerOptions
-                {
-                    DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
-                    PropertyNameCaseInsensitive = true,
-                };
-
                 var json = JsonSerializer.Serialize(cliente, options);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
                 var response = await httpClient.PostAsync("", content);
@@ -107,13 +97,6 @@ namespace Desktop.Services
         {
             try
             {
-                // Configuramos las opciones de serialización para ignorar propiedades nulas y hacer que la búsqueda de propiedades sea insensible a mayúsculas
-                var options = new JsonSerializerOptions
-                {
-                    DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
-                    PropertyNameCaseInsensitive = true,
-                };
-
                 var json = JsonSerializer.Serialize(cliente, options);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
                 string urlUpdate = $"?id=eq.{cliente.id}";
@@ -131,6 +114,52 @@ namespace Desktop.Services
             catch (Exception ex)
             {
                 MessageBox.Show("Error al actualizar el cliente desde la Api: " + ex.Message);
+                return false;
+            }
+        }
+
+        private HttpClient SettingHttpClient()
+        {
+            Env.Load("../../../");
+            var apikey = Environment.GetEnvironmentVariable("apikey_supabase");
+            //instanciamos el httpClient y lo configuramos para poder utilizarlo en cada uno de los métodos
+            var httpClient = new HttpClient();
+            httpClient.BaseAddress = new Uri(urlApi);
+            //agregamos apikey de la url
+            httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
+            httpClient.DefaultRequestHeaders.Add("apikey", apikey);
+            return httpClient;
+        }
+
+        private JsonSerializerOptions SettingJsonSerializer()
+        {
+            return new JsonSerializerOptions
+            {
+                DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+                PropertyNameCaseInsensitive = true,
+            };
+
+        }
+
+        public async Task<bool> DeleteClienteAsync(int? id)
+        {
+            try
+            {
+                string urlDelete = $"?id=eq.{id}";
+                var response = await httpClient.DeleteAsync(urlDelete);
+                if (response.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Error al eliminar el cliente: " + response.ReasonPhrase);
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar el cliente desde la Api: " + ex.Message);
                 return false;
             }
         }

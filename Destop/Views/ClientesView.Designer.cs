@@ -59,9 +59,9 @@
             // 
             labelClientes.AutoSize = true;
             labelClientes.Font = new Font("Segoe UI", 16F, FontStyle.Bold | FontStyle.Italic);
-            labelClientes.Location = new Point(27, 19);
+            labelClientes.Location = new Point(31, 25);
             labelClientes.Name = "labelClientes";
-            labelClientes.Size = new Size(94, 30);
+            labelClientes.Size = new Size(118, 37);
             labelClientes.TabIndex = 0;
             labelClientes.Text = "Clientes";
             // 
@@ -69,10 +69,11 @@
             // 
             tabControlLista.Controls.Add(tabPageLista);
             tabControlLista.Controls.Add(tabPageAgregarEditar);
-            tabControlLista.Location = new Point(12, 52);
+            tabControlLista.Location = new Point(14, 69);
+            tabControlLista.Margin = new Padding(3, 4, 3, 4);
             tabControlLista.Name = "tabControlLista";
             tabControlLista.SelectedIndex = 0;
-            tabControlLista.Size = new Size(783, 394);
+            tabControlLista.Size = new Size(895, 525);
             tabControlLista.TabIndex = 1;
             // 
             // tabPageLista
@@ -84,10 +85,11 @@
             tabPageLista.Controls.Add(dataGridClientes);
             tabPageLista.Controls.Add(txtBusqueda);
             tabPageLista.Controls.Add(labelBuscar);
-            tabPageLista.Location = new Point(4, 24);
+            tabPageLista.Location = new Point(4, 29);
+            tabPageLista.Margin = new Padding(3, 4, 3, 4);
             tabPageLista.Name = "tabPageLista";
-            tabPageLista.Padding = new Padding(3);
-            tabPageLista.Size = new Size(775, 366);
+            tabPageLista.Padding = new Padding(3, 4, 3, 4);
+            tabPageLista.Size = new Size(887, 492);
             tabPageLista.TabIndex = 0;
             tabPageLista.Text = "Lista";
             tabPageLista.UseVisualStyleBackColor = true;
@@ -97,9 +99,10 @@
             btnBuscar.IconChar = FontAwesome.Sharp.IconChar.None;
             btnBuscar.IconColor = Color.Black;
             btnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnBuscar.Location = new Point(680, 38);
+            btnBuscar.Location = new Point(777, 51);
+            btnBuscar.Margin = new Padding(3, 4, 3, 4);
             btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(75, 23);
+            btnBuscar.Size = new Size(86, 31);
             btnBuscar.TabIndex = 7;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = true;
@@ -110,21 +113,24 @@
             btnEliminar.IconChar = FontAwesome.Sharp.IconChar.None;
             btnEliminar.IconColor = Color.Black;
             btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnEliminar.Location = new Point(677, 175);
+            btnEliminar.Location = new Point(774, 233);
+            btnEliminar.Margin = new Padding(3, 4, 3, 4);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(75, 23);
+            btnEliminar.Size = new Size(86, 31);
             btnEliminar.TabIndex = 6;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // btnModificar
             // 
             btnModificar.IconChar = FontAwesome.Sharp.IconChar.None;
             btnModificar.IconColor = Color.Black;
             btnModificar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnModificar.Location = new Point(677, 129);
+            btnModificar.Location = new Point(774, 172);
+            btnModificar.Margin = new Padding(3, 4, 3, 4);
             btnModificar.Name = "btnModificar";
-            btnModificar.Size = new Size(75, 23);
+            btnModificar.Size = new Size(86, 31);
             btnModificar.TabIndex = 5;
             btnModificar.Text = "Modificar";
             btnModificar.UseVisualStyleBackColor = true;
@@ -135,9 +141,10 @@
             btnNuevo.IconChar = FontAwesome.Sharp.IconChar.None;
             btnNuevo.IconColor = Color.Black;
             btnNuevo.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnNuevo.Location = new Point(677, 80);
+            btnNuevo.Location = new Point(774, 107);
+            btnNuevo.Margin = new Padding(3, 4, 3, 4);
             btnNuevo.Name = "btnNuevo";
-            btnNuevo.Size = new Size(75, 23);
+            btnNuevo.Size = new Size(86, 31);
             btnNuevo.TabIndex = 4;
             btnNuevo.Text = "Nuevo";
             btnNuevo.UseVisualStyleBackColor = true;
@@ -148,25 +155,29 @@
             dataGridClientes.AllowUserToAddRows = false;
             dataGridClientes.AllowUserToDeleteRows = false;
             dataGridClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridClientes.Location = new Point(18, 92);
+            dataGridClientes.Location = new Point(21, 123);
+            dataGridClientes.Margin = new Padding(3, 4, 3, 4);
             dataGridClientes.Name = "dataGridClientes";
             dataGridClientes.ReadOnly = true;
-            dataGridClientes.Size = new Size(631, 269);
+            dataGridClientes.RowHeadersWidth = 51;
+            dataGridClientes.Size = new Size(721, 359);
             dataGridClientes.TabIndex = 3;
             // 
             // txtBusqueda
             // 
-            txtBusqueda.Location = new Point(68, 39);
+            txtBusqueda.Location = new Point(78, 52);
+            txtBusqueda.Margin = new Padding(3, 4, 3, 4);
             txtBusqueda.Name = "txtBusqueda";
-            txtBusqueda.Size = new Size(581, 23);
+            txtBusqueda.Size = new Size(663, 27);
             txtBusqueda.TabIndex = 1;
+            txtBusqueda.KeyPress += txtBusqueda_KeyPress;
             // 
             // labelBuscar
             // 
             labelBuscar.AutoSize = true;
-            labelBuscar.Location = new Point(11, 43);
+            labelBuscar.Location = new Point(13, 57);
             labelBuscar.Name = "labelBuscar";
-            labelBuscar.Size = new Size(42, 15);
+            labelBuscar.Size = new Size(52, 20);
             labelBuscar.TabIndex = 0;
             labelBuscar.Text = "Buscar";
             // 
@@ -182,66 +193,71 @@
             tabPageAgregarEditar.Controls.Add(labelNombre);
             tabPageAgregarEditar.Controls.Add(btnCancelar);
             tabPageAgregarEditar.Controls.Add(btnGuardar);
-            tabPageAgregarEditar.Location = new Point(4, 24);
+            tabPageAgregarEditar.Location = new Point(4, 29);
+            tabPageAgregarEditar.Margin = new Padding(3, 4, 3, 4);
             tabPageAgregarEditar.Name = "tabPageAgregarEditar";
-            tabPageAgregarEditar.Padding = new Padding(3);
-            tabPageAgregarEditar.Size = new Size(775, 366);
+            tabPageAgregarEditar.Padding = new Padding(3, 4, 3, 4);
+            tabPageAgregarEditar.Size = new Size(887, 492);
             tabPageAgregarEditar.TabIndex = 1;
             tabPageAgregarEditar.Text = "Agregar/Editar";
             tabPageAgregarEditar.UseVisualStyleBackColor = true;
             // 
             // txtDireccion
             // 
-            txtDireccion.Location = new Point(102, 218);
+            txtDireccion.Location = new Point(117, 291);
+            txtDireccion.Margin = new Padding(3, 4, 3, 4);
             txtDireccion.Name = "txtDireccion";
-            txtDireccion.Size = new Size(453, 23);
+            txtDireccion.Size = new Size(517, 27);
             txtDireccion.TabIndex = 9;
             // 
             // txtDni
             // 
-            txtDni.Location = new Point(102, 144);
+            txtDni.Location = new Point(117, 192);
+            txtDni.Margin = new Padding(3, 4, 3, 4);
             txtDni.Name = "txtDni";
-            txtDni.Size = new Size(453, 23);
+            txtDni.Size = new Size(517, 27);
             txtDni.TabIndex = 8;
             // 
             // txtApellido
             // 
-            txtApellido.Location = new Point(102, 87);
+            txtApellido.Location = new Point(117, 116);
+            txtApellido.Margin = new Padding(3, 4, 3, 4);
             txtApellido.Name = "txtApellido";
-            txtApellido.Size = new Size(453, 23);
+            txtApellido.Size = new Size(517, 27);
             txtApellido.TabIndex = 7;
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(102, 43);
+            txtNombre.Location = new Point(117, 57);
+            txtNombre.Margin = new Padding(3, 4, 3, 4);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(453, 23);
+            txtNombre.Size = new Size(517, 27);
             txtNombre.TabIndex = 6;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(35, 218);
+            label4.Location = new Point(40, 291);
             label4.Name = "label4";
-            label4.Size = new Size(57, 15);
+            label4.Size = new Size(72, 20);
             label4.TabIndex = 5;
             label4.Text = "Dirección";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(35, 152);
+            label3.Location = new Point(40, 203);
             label3.Name = "label3";
-            label3.Size = new Size(27, 15);
+            label3.Size = new Size(35, 20);
             label3.TabIndex = 4;
             label3.Text = "DNI";
             // 
             // labelApellido
             // 
             labelApellido.AutoSize = true;
-            labelApellido.Location = new Point(30, 90);
+            labelApellido.Location = new Point(34, 120);
             labelApellido.Name = "labelApellido";
-            labelApellido.Size = new Size(51, 15);
+            labelApellido.Size = new Size(66, 20);
             labelApellido.TabIndex = 3;
             labelApellido.Text = "Apellido";
             labelApellido.Click += labelApellido_Click;
@@ -249,9 +265,9 @@
             // labelNombre
             // 
             labelNombre.AutoSize = true;
-            labelNombre.Location = new Point(30, 43);
+            labelNombre.Location = new Point(34, 57);
             labelNombre.Name = "labelNombre";
-            labelNombre.Size = new Size(51, 15);
+            labelNombre.Size = new Size(64, 20);
             labelNombre.TabIndex = 2;
             labelNombre.Text = "Nombre";
             // 
@@ -260,9 +276,10 @@
             btnCancelar.IconChar = FontAwesome.Sharp.IconChar.None;
             btnCancelar.IconColor = Color.Black;
             btnCancelar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnCancelar.Location = new Point(680, 90);
+            btnCancelar.Location = new Point(777, 120);
+            btnCancelar.Margin = new Padding(3, 4, 3, 4);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(75, 23);
+            btnCancelar.Size = new Size(86, 31);
             btnCancelar.TabIndex = 1;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
@@ -273,9 +290,10 @@
             btnGuardar.IconChar = FontAwesome.Sharp.IconChar.None;
             btnGuardar.IconColor = Color.Black;
             btnGuardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnGuardar.Location = new Point(680, 29);
+            btnGuardar.Location = new Point(777, 39);
+            btnGuardar.Margin = new Padding(3, 4, 3, 4);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(75, 23);
+            btnGuardar.Size = new Size(86, 31);
             btnGuardar.TabIndex = 0;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = true;
@@ -283,11 +301,12 @@
             // 
             // ClientesView
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(914, 600);
             Controls.Add(tabControlLista);
             Controls.Add(labelClientes);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "ClientesView";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Clientes";
