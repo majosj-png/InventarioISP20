@@ -32,11 +32,12 @@
             iconMenuItem1 = new FontAwesome.Sharp.IconMenuItem();
             SubMenuArticulos = new FontAwesome.Sharp.IconMenuItem();
             SubMenuCategorías = new FontAwesome.Sharp.IconMenuItem();
-            iconMenuItem2 = new FontAwesome.Sharp.IconMenuItem();
-            SubMenuSalirDelSistema = new FontAwesome.Sharp.IconMenuItem();
             subMenuPrestamos = new FontAwesome.Sharp.IconMenuItem();
             subMenuUbicaciones = new FontAwesome.Sharp.IconMenuItem();
             subMenuClientes = new FontAwesome.Sharp.IconMenuItem();
+            iconMenuItem2 = new FontAwesome.Sharp.IconMenuItem();
+            SubMenuSalirDelSistema = new FontAwesome.Sharp.IconMenuItem();
+            subMenuTienda = new FontAwesome.Sharp.IconMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -52,7 +53,7 @@
             // 
             // iconMenuItem1
             // 
-            iconMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { SubMenuArticulos, SubMenuCategorías, subMenuPrestamos, subMenuUbicaciones, subMenuClientes });
+            iconMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { SubMenuArticulos, SubMenuCategorías, subMenuPrestamos, subMenuUbicaciones, subMenuClientes, subMenuTienda });
             iconMenuItem1.IconChar = FontAwesome.Sharp.IconChar.House;
             iconMenuItem1.IconColor = Color.Black;
             iconMenuItem1.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -79,26 +80,6 @@
             SubMenuCategorías.Size = new Size(184, 26);
             SubMenuCategorías.Text = "Categorías";
             SubMenuCategorías.Click += SubMenuCategorías_Click_1;
-            // 
-            // iconMenuItem2
-            // 
-            iconMenuItem2.DropDownItems.AddRange(new ToolStripItem[] { SubMenuSalirDelSistema });
-            iconMenuItem2.IconChar = FontAwesome.Sharp.IconChar.DoorClosed;
-            iconMenuItem2.IconColor = Color.Black;
-            iconMenuItem2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconMenuItem2.Name = "iconMenuItem2";
-            iconMenuItem2.Size = new Size(61, 24);
-            iconMenuItem2.Text = "Salir";
-            // 
-            // SubMenuSalirDelSistema
-            // 
-            SubMenuSalirDelSistema.IconChar = FontAwesome.Sharp.IconChar.DoorOpen;
-            SubMenuSalirDelSistema.IconColor = Color.Black;
-            SubMenuSalirDelSistema.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            SubMenuSalirDelSistema.Name = "SubMenuSalirDelSistema";
-            SubMenuSalirDelSistema.Size = new Size(167, 22);
-            SubMenuSalirDelSistema.Text = "Salir del sistema...";
-            SubMenuSalirDelSistema.Click += SubMenuSalirDelSistema_Click;
             // 
             // subMenuPrestamos
             // 
@@ -128,6 +109,36 @@
             subMenuClientes.Text = "Clientes";
             subMenuClientes.Click += subMenuClientes_Click;
             // 
+            // iconMenuItem2
+            // 
+            iconMenuItem2.DropDownItems.AddRange(new ToolStripItem[] { SubMenuSalirDelSistema });
+            iconMenuItem2.IconChar = FontAwesome.Sharp.IconChar.DoorClosed;
+            iconMenuItem2.IconColor = Color.Black;
+            iconMenuItem2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconMenuItem2.Name = "iconMenuItem2";
+            iconMenuItem2.Size = new Size(61, 24);
+            iconMenuItem2.Text = "Salir";
+            // 
+            // SubMenuSalirDelSistema
+            // 
+            SubMenuSalirDelSistema.IconChar = FontAwesome.Sharp.IconChar.DoorOpen;
+            SubMenuSalirDelSistema.IconColor = Color.Black;
+            SubMenuSalirDelSistema.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            SubMenuSalirDelSistema.Name = "SubMenuSalirDelSistema";
+            SubMenuSalirDelSistema.Size = new Size(167, 22);
+            SubMenuSalirDelSistema.Text = "Salir del sistema...";
+            SubMenuSalirDelSistema.Click += SubMenuSalirDelSistema_Click;
+            // 
+            // subMenuTienda
+            // 
+            subMenuTienda.IconChar = FontAwesome.Sharp.IconChar.None;
+            subMenuTienda.IconColor = Color.Black;
+            subMenuTienda.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            subMenuTienda.Name = "subMenuTienda";
+            subMenuTienda.Size = new Size(184, 26);
+            subMenuTienda.Text = "Tienda";
+            subMenuTienda.Click += subMenuTienda_Click;
+            // 
             // MenuPrincipalView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -155,5 +166,6 @@
         private FontAwesome.Sharp.IconMenuItem subMenuPrestamos;
         private FontAwesome.Sharp.IconMenuItem subMenuUbicaciones;
         private FontAwesome.Sharp.IconMenuItem subMenuClientes;
+        private FontAwesome.Sharp.IconMenuItem subMenuTienda;
     }
 }
