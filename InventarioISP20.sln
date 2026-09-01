@@ -18,6 +18,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppMovil", "AppMovil\AppMov
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Consola", "Consola\Consola.csproj", "{4FC81153-5CE1-4FDE-84BA-84D4481D71D4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Backend", "Backend\Backend.csproj", "{26A170ED-A49E-419B-986B-44778299E05C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{F77519CE-E1B9-4088-9474-22FB5645134C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,6 +50,14 @@ Global
 		{4FC81153-5CE1-4FDE-84BA-84D4481D71D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4FC81153-5CE1-4FDE-84BA-84D4481D71D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4FC81153-5CE1-4FDE-84BA-84D4481D71D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26A170ED-A49E-419B-986B-44778299E05C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26A170ED-A49E-419B-986B-44778299E05C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26A170ED-A49E-419B-986B-44778299E05C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26A170ED-A49E-419B-986B-44778299E05C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F77519CE-E1B9-4088-9474-22FB5645134C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F77519CE-E1B9-4088-9474-22FB5645134C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F77519CE-E1B9-4088-9474-22FB5645134C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F77519CE-E1B9-4088-9474-22FB5645134C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

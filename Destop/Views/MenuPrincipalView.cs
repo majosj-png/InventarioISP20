@@ -46,5 +46,17 @@ namespace Desktop.Views
             TiendaView tiendaView = new();
             tiendaView.ShowDialog();
         }
+
+        private void SubMenuGemini_Click(object sender, EventArgs e)
+        {
+            ProbandoIA_Gemini probandoIA_Gemini = new();
+            probandoIA_Gemini.ShowDialog();
+        }
+
+        private void subMenuMistral_Click(object sender, EventArgs e)
+        {
+            ProbandoMistralAI probandoMistralAI = new();
+            probandoMistralAI.ShowDialog();
+        }
     }
 }
