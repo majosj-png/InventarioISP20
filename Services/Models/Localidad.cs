@@ -10,8 +10,11 @@ namespace Services.Models
     {
         public int Id { get; set; } = 0;
         public string Name { get; set; }= string.Empty;
-        public int ProvinciaId { get; set; } = 0;
+        public int ProvinciaId { get; set; } = 1;
         public Provincia? Provincia { get; set; } = null;
+        public int PaisId { get; set; } = 1;
+        public Pais? Pais { get; set; } = null;
+
         public bool IsDeleted { get; set; } = false;
     }
 }
