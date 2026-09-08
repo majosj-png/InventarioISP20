@@ -16,8 +16,7 @@ namespace Services.Models
         public string Address { get; set; }= string.Empty;
         public int LocalidadId { get; set; } = 0;
         public Localidad? Localidad { get; set; } 
-        public int ProvinciaId { get; set; } = 0;
-        public Provincia? Provincia { get; set; }
+       
         public bool IsDeleted { get; set; } = false;
     }
 }
