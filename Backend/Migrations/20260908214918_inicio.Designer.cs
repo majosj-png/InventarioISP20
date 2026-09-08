@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Backend.Migrations
 {
     [DbContext(typeof(InventarioContext))]
-    [Migration("20260903194532_inicio")]
+    [Migration("20260908214918_inicio")]
     partial class inicio
     {
         /// <inheritdoc />
@@ -60,14 +60,9 @@ namespace Backend.Migrations
                     b.Property<int>("LocalidadId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("ProvinciaId")
-                        .HasColumnType("integer");
-
                     b.HasKey("Id");
 
                     b.HasIndex("LocalidadId");
-
-                    b.HasIndex("ProvinciaId");
 
                     b.ToTable("Clientes");
 
@@ -76,37 +71,34 @@ namespace Backend.Migrations
                         {
                             Id = 1,
                             Address = "Calle Falsa 123",
-                            Created_at = new DateTimeOffset(new DateTime(2026, 9, 3, 16, 45, 31, 637, DateTimeKind.Unspecified).AddTicks(7841), new TimeSpan(0, -3, 0, 0, 0)),
+                            Created_at = new DateTimeOffset(new DateTime(2026, 9, 8, 18, 49, 17, 338, DateTimeKind.Unspecified).AddTicks(3123), new TimeSpan(0, -3, 0, 0, 0)),
                             Dni = "12345678",
-                            Firstname = "Juan",
+                            Firstname = "Maria",
                             IsDeleted = false,
-                            Lastname = "Pérez",
-                            LocalidadId = 1,
-                            ProvinciaId = 1
+                            Lastname = "Longoni",
+                            LocalidadId = 1
                         },
                         new
                         {
                             Id = 2,
                             Address = "Avenida Siempre Viva 456",
-                            Created_at = new DateTimeOffset(new DateTime(2026, 9, 3, 16, 45, 31, 637, DateTimeKind.Unspecified).AddTicks(7884), new TimeSpan(0, -3, 0, 0, 0)),
+                            Created_at = new DateTimeOffset(new DateTime(2026, 9, 8, 18, 49, 17, 338, DateTimeKind.Unspecified).AddTicks(3173), new TimeSpan(0, -3, 0, 0, 0)),
                             Dni = "87654321",
                             Firstname = "María",
                             IsDeleted = false,
                             Lastname = "González",
-                            LocalidadId = 2,
-                            ProvinciaId = 3
+                            LocalidadId = 2
                         },
                         new
                         {
                             Id = 3,
                             Address = "Callejón del Beso 789",
-                            Created_at = new DateTimeOffset(new DateTime(2026, 9, 3, 16, 45, 31, 637, DateTimeKind.Unspecified).AddTicks(7887), new TimeSpan(0, -3, 0, 0, 0)),
+                            Created_at = new DateTimeOffset(new DateTime(2026, 9, 8, 18, 49, 17, 338, DateTimeKind.Unspecified).AddTicks(3177), new TimeSpan(0, -3, 0, 0, 0)),
                             Dni = "11223344",
                             Firstname = "Pedro",
                             IsDeleted = false,
                             Lastname = "López",
-                            LocalidadId = 3,
-                            ProvinciaId = 2
+                            LocalidadId = 3
                         });
                 });
 
@@ -270,15 +262,7 @@ namespace Backend.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Services.Models.Provincia", "Provincia")
-                        .WithMany()
-                        .HasForeignKey("ProvinciaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Localidad");
-
-                    b.Navigation("Provincia");
                 });
 
             modelBuilder.Entity("Services.Models.Localidad", b =>

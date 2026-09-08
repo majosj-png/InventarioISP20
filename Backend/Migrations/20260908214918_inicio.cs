@@ -89,7 +89,6 @@ namespace Backend.Migrations
                     Dni = table.Column<string>(type: "text", nullable: false),
                     Address = table.Column<string>(type: "text", nullable: false),
                     LocalidadId = table.Column<int>(type: "integer", nullable: false),
-                    ProvinciaId = table.Column<int>(type: "integer", nullable: false),
                     IsDeleted = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
@@ -99,12 +98,6 @@ namespace Backend.Migrations
                         name: "FK_Clientes_Localidades_LocalidadId",
                         column: x => x.LocalidadId,
                         principalTable: "Localidades",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Clientes_Provincias_ProvinciaId",
-                        column: x => x.ProvinciaId,
-                        principalTable: "Provincias",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -142,23 +135,18 @@ namespace Backend.Migrations
 
             migrationBuilder.InsertData(
                 table: "Clientes",
-                columns: new[] { "Id", "Address", "Created_at", "Dni", "Firstname", "IsDeleted", "Lastname", "LocalidadId", "ProvinciaId" },
+                columns: new[] { "Id", "Address", "Created_at", "Dni", "Firstname", "IsDeleted", "Lastname", "LocalidadId" },
                 values: new object[,]
                 {
-                    { 1, "Calle Falsa 123", new DateTimeOffset(new DateTime(2026, 9, 3, 16, 45, 31, 637, DateTimeKind.Unspecified).AddTicks(7841), new TimeSpan(0, -3, 0, 0, 0)), "12345678", "Juan", false, "Pérez", 1, 1 },
-                    { 2, "Avenida Siempre Viva 456", new DateTimeOffset(new DateTime(2026, 9, 3, 16, 45, 31, 637, DateTimeKind.Unspecified).AddTicks(7884), new TimeSpan(0, -3, 0, 0, 0)), "87654321", "María", false, "González", 2, 3 },
-                    { 3, "Callejón del Beso 789", new DateTimeOffset(new DateTime(2026, 9, 3, 16, 45, 31, 637, DateTimeKind.Unspecified).AddTicks(7887), new TimeSpan(0, -3, 0, 0, 0)), "11223344", "Pedro", false, "López", 3, 2 }
+                    { 1, "Calle Falsa 123", new DateTimeOffset(new DateTime(2026, 9, 8, 18, 49, 17, 338, DateTimeKind.Unspecified).AddTicks(3123), new TimeSpan(0, -3, 0, 0, 0)), "12345678", "Maria", false, "Longoni", 1 },
+                    { 2, "Avenida Siempre Viva 456", new DateTimeOffset(new DateTime(2026, 9, 8, 18, 49, 17, 338, DateTimeKind.Unspecified).AddTicks(3173), new TimeSpan(0, -3, 0, 0, 0)), "87654321", "María", false, "González", 2 },
+                    { 3, "Callejón del Beso 789", new DateTimeOffset(new DateTime(2026, 9, 8, 18, 49, 17, 338, DateTimeKind.Unspecified).AddTicks(3177), new TimeSpan(0, -3, 0, 0, 0)), "11223344", "Pedro", false, "López", 3 }
                 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Clientes_LocalidadId",
                 table: "Clientes",
                 column: "LocalidadId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Clientes_ProvinciaId",
-                table: "Clientes",
-                column: "ProvinciaId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Localidades_PaisId",
