@@ -37,9 +37,10 @@
             subMenuClientes = new FontAwesome.Sharp.IconMenuItem();
             subMenuTienda = new FontAwesome.Sharp.IconMenuItem();
             SubMenuGemini = new FontAwesome.Sharp.IconMenuItem();
+            subMenuMistral = new FontAwesome.Sharp.IconMenuItem();
+            SubMenuApiCliente = new FontAwesome.Sharp.IconMenuItem();
             iconMenuItem2 = new FontAwesome.Sharp.IconMenuItem();
             SubMenuSalirDelSistema = new FontAwesome.Sharp.IconMenuItem();
-            subMenuMistral = new FontAwesome.Sharp.IconMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -55,7 +56,7 @@
             // 
             // iconMenuItem1
             // 
-            iconMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { SubMenuArticulos, SubMenuCategorías, subMenuPrestamos, subMenuUbicaciones, subMenuClientes, subMenuTienda, SubMenuGemini, subMenuMistral });
+            iconMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { SubMenuArticulos, SubMenuCategorías, subMenuPrestamos, subMenuUbicaciones, subMenuClientes, subMenuTienda, SubMenuGemini, subMenuMistral, SubMenuApiCliente });
             iconMenuItem1.IconChar = FontAwesome.Sharp.IconChar.House;
             iconMenuItem1.IconColor = Color.Black;
             iconMenuItem1.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -131,6 +132,26 @@
             SubMenuGemini.Text = "Probando IA Gemini";
             SubMenuGemini.Click += SubMenuGemini_Click;
             // 
+            // subMenuMistral
+            // 
+            subMenuMistral.IconChar = FontAwesome.Sharp.IconChar.None;
+            subMenuMistral.IconColor = Color.Black;
+            subMenuMistral.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            subMenuMistral.Name = "subMenuMistral";
+            subMenuMistral.Size = new Size(185, 26);
+            subMenuMistral.Text = "Mistral IA";
+            subMenuMistral.Click += subMenuMistral_Click;
+            // 
+            // SubMenuApiCliente
+            // 
+            SubMenuApiCliente.IconChar = FontAwesome.Sharp.IconChar.None;
+            SubMenuApiCliente.IconColor = Color.Black;
+            SubMenuApiCliente.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            SubMenuApiCliente.Name = "SubMenuApiCliente";
+            SubMenuApiCliente.Size = new Size(185, 26);
+            SubMenuApiCliente.Text = "Clientes Api Service";
+            SubMenuApiCliente.Click += SubMenuApiCliente_Click;
+            // 
             // iconMenuItem2
             // 
             iconMenuItem2.DropDownItems.AddRange(new ToolStripItem[] { SubMenuSalirDelSistema });
@@ -150,16 +171,6 @@
             SubMenuSalirDelSistema.Size = new Size(167, 22);
             SubMenuSalirDelSistema.Text = "Salir del sistema...";
             SubMenuSalirDelSistema.Click += SubMenuSalirDelSistema_Click;
-            // 
-            // subMenuMistral
-            // 
-            subMenuMistral.IconChar = FontAwesome.Sharp.IconChar.None;
-            subMenuMistral.IconColor = Color.Black;
-            subMenuMistral.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            subMenuMistral.Name = "subMenuMistral";
-            subMenuMistral.Size = new Size(185, 26);
-            subMenuMistral.Text = "Mistral IA";
-            subMenuMistral.Click += subMenuMistral_Click;
             // 
             // MenuPrincipalView
             // 
@@ -191,5 +202,6 @@
         private FontAwesome.Sharp.IconMenuItem subMenuTienda;
         private FontAwesome.Sharp.IconMenuItem SubMenuGemini;
         private FontAwesome.Sharp.IconMenuItem subMenuMistral;
+        private FontAwesome.Sharp.IconMenuItem SubMenuApiCliente;
     }
 }

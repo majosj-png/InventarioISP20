@@ -58,5 +58,11 @@ namespace Desktop.Views
             ProbandoMistralAI probandoMistralAI = new();
             probandoMistralAI.ShowDialog();
         }
+
+        private void SubMenuApiCliente_Click(object sender, EventArgs e)
+        {
+            ClientesApiView clientesApiView = new();
+            clientesApiView.ShowDialog();
+        }
     }
 }
