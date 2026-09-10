@@ -24,12 +24,15 @@ namespace Backend.Controllers
         // GET: api/Clientes
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Cliente>>>
-            GetClientes()
+            GetClientes([FromQuery] string filtro="")
         {
+            filtro = filtro.ToLower();
             return await _context.Clientes
                 .Include(c => c.Localidad)
                 .ThenInclude(l => l.Provincia)
                 .ThenInclude(p => p.Pais)
+                .Where(c=>c.Firstname.ToLower().Contains(filtro) || c.Lastname.ToLower().Contains(filtro) || c.Dni.ToLower().Contains(filtro) 
+                ||c.Address.ToLower().Contains(filtro))
                 .ToListAsync();
         }
 

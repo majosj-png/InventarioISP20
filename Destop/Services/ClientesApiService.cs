@@ -122,7 +122,8 @@ namespace Desktop.Services
         private HttpClient SettingHttpClient()
         {
             Env.Load("../../../");
-            var urlApi = Environment.GetEnvironmentVariable("URLAPI");
+            //var urlApi = Environment.GetEnvironmentVariable("URLAPI");
+            var urlApi = Environment.GetEnvironmentVariable("URLAPILOCAL");
             //instanciamos el httpClient y lo configuramos para poder utilizarlo en cada uno de los métodos
             var httpClient = new HttpClient();
             httpClient.BaseAddress = new Uri(urlApi+"Clientes");
@@ -145,25 +146,26 @@ namespace Desktop.Services
 
         public async Task<bool> DeleteClienteAsync(int? id)
         {
-            try
-            {
-                string urlDelete = $"?id=eq.{id}";
-                var response = await httpClient.DeleteAsync(urlDelete);
-                if (response.IsSuccessStatusCode)
-                {
-                    return true;
-                }
-                else
-                {
-                    MessageBox.Show("Error al eliminar el cliente: " + response.ReasonPhrase);
-                    return false;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al eliminar el cliente desde la Api: " + ex.Message);
-                return false;
-            }
+            //try
+            //{
+            //    string urlDelete = $"?id=eq.{id}";
+            //    var response = await httpClient.DeleteAsync(urlDelete);
+            //    if (response.IsSuccessStatusCode)
+            //    {
+            //        return true;
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("Error al eliminar el cliente: " + response.ReasonPhrase);
+            //        return false;
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Error al eliminar el cliente desde la Api: " + ex.Message);
+            //    return false;
+            //}
+            return false;
         }
     }
 }
