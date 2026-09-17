@@ -31,6 +31,8 @@
             labelClientes = new Label();
             tabControlLista = new TabControl();
             tabPageLista = new TabPage();
+            btnRestaurar = new FontAwesome.Sharp.IconButton();
+            verEliminadoscheck = new CheckBox();
             btnBuscar = new FontAwesome.Sharp.IconButton();
             btnEliminar = new FontAwesome.Sharp.IconButton();
             btnModificar = new FontAwesome.Sharp.IconButton();
@@ -39,6 +41,8 @@
             txtBusqueda = new TextBox();
             labelBuscar = new Label();
             tabPageAgregarEditar = new TabPage();
+            label1 = new Label();
+            comboLocalidades = new ComboBox();
             txtDireccion = new TextBox();
             txtDni = new TextBox();
             txtApellido = new TextBox();
@@ -77,6 +81,8 @@
             // 
             // tabPageLista
             // 
+            tabPageLista.Controls.Add(btnRestaurar);
+            tabPageLista.Controls.Add(verEliminadoscheck);
             tabPageLista.Controls.Add(btnBuscar);
             tabPageLista.Controls.Add(btnEliminar);
             tabPageLista.Controls.Add(btnModificar);
@@ -86,11 +92,35 @@
             tabPageLista.Controls.Add(labelBuscar);
             tabPageLista.Location = new Point(4, 24);
             tabPageLista.Name = "tabPageLista";
-            tabPageLista.Padding = new Padding(3, 3, 3, 3);
+            tabPageLista.Padding = new Padding(3);
             tabPageLista.Size = new Size(775, 366);
             tabPageLista.TabIndex = 0;
             tabPageLista.Text = "Lista";
             tabPageLista.UseVisualStyleBackColor = true;
+            // 
+            // btnRestaurar
+            // 
+            btnRestaurar.IconChar = FontAwesome.Sharp.IconChar.None;
+            btnRestaurar.IconColor = Color.Black;
+            btnRestaurar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnRestaurar.Location = new Point(677, 275);
+            btnRestaurar.Name = "btnRestaurar";
+            btnRestaurar.Size = new Size(75, 23);
+            btnRestaurar.TabIndex = 9;
+            btnRestaurar.Text = "Restaurar";
+            btnRestaurar.UseVisualStyleBackColor = true;
+            btnRestaurar.Click += btnRestaurar_Click;
+            // 
+            // verEliminadoscheck
+            // 
+            verEliminadoscheck.AutoSize = true;
+            verEliminadoscheck.Location = new Point(663, 230);
+            verEliminadoscheck.Name = "verEliminadoscheck";
+            verEliminadoscheck.Size = new Size(106, 19);
+            verEliminadoscheck.TabIndex = 8;
+            verEliminadoscheck.Text = "Ver eliminados ";
+            verEliminadoscheck.UseVisualStyleBackColor = true;
+            verEliminadoscheck.CheckedChanged += verEliminadoscheck_CheckedChanged;
             // 
             // btnBuscar
             // 
@@ -153,6 +183,7 @@
             dataGridClientes.Name = "dataGridClientes";
             dataGridClientes.ReadOnly = true;
             dataGridClientes.RowHeadersWidth = 51;
+            dataGridClientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridClientes.Size = new Size(631, 269);
             dataGridClientes.TabIndex = 3;
             // 
@@ -175,6 +206,8 @@
             // 
             // tabPageAgregarEditar
             // 
+            tabPageAgregarEditar.Controls.Add(label1);
+            tabPageAgregarEditar.Controls.Add(comboLocalidades);
             tabPageAgregarEditar.Controls.Add(txtDireccion);
             tabPageAgregarEditar.Controls.Add(txtDni);
             tabPageAgregarEditar.Controls.Add(txtApellido);
@@ -187,11 +220,29 @@
             tabPageAgregarEditar.Controls.Add(btnGuardar);
             tabPageAgregarEditar.Location = new Point(4, 24);
             tabPageAgregarEditar.Name = "tabPageAgregarEditar";
-            tabPageAgregarEditar.Padding = new Padding(3, 3, 3, 3);
+            tabPageAgregarEditar.Padding = new Padding(3);
             tabPageAgregarEditar.Size = new Size(775, 366);
             tabPageAgregarEditar.TabIndex = 1;
             tabPageAgregarEditar.Text = "Agregar/Editar";
             tabPageAgregarEditar.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(23, 266);
+            label1.Name = "label1";
+            label1.Size = new Size(69, 15);
+            label1.TabIndex = 11;
+            label1.Text = "Localidades";
+            label1.Click += label1_Click;
+            // 
+            // comboLocalidades
+            // 
+            comboLocalidades.FormattingEnabled = true;
+            comboLocalidades.Location = new Point(102, 263);
+            comboLocalidades.Name = "comboLocalidades";
+            comboLocalidades.Size = new Size(453, 23);
+            comboLocalidades.TabIndex = 10;
             // 
             // txtDireccion
             // 
@@ -247,7 +298,6 @@
             labelApellido.Size = new Size(51, 15);
             labelApellido.TabIndex = 3;
             labelApellido.Text = "Apellido";
-            labelApellido.Click += labelApellido_Click;
             // 
             // labelNombre
             // 
@@ -288,7 +338,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(873, 450);
             Controls.Add(tabControlLista);
             Controls.Add(labelClientes);
             Name = "ClientesApiView";
@@ -327,5 +377,9 @@
         private TextBox txtDni;
         private TextBox txtApellido;
         private FontAwesome.Sharp.IconButton btnBuscar;
+        private CheckBox verEliminadoscheck;
+        private FontAwesome.Sharp.IconButton btnRestaurar;
+        private Label label1;
+        private ComboBox comboLocalidades;
     }
 }

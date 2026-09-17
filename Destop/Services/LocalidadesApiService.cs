@@ -10,41 +10,39 @@ using System.Threading.Tasks;
 
 namespace Desktop.Services
 {
-    public class ClientesApiService
+    public class LocalidadesApiService
     {
         HttpClient httpClient;
         const string urlApi = null; // Endpoint
         JsonSerializerOptions options;
-        public ClientesApiService()
+        public LocalidadesApiService()
         {
             httpClient = SettingHttpClient();
             options=SettingJsonSerializer();
         }
 
-        public async Task<List<Cliente>?> GetAllAsync()
+        public async Task<List<Localidad>?> GetAllAsync()
         {
             try
             {
                 var response = await httpClient.GetAsync(urlApi);
-                if (response.IsSuccessStatusCode)
+                if (!response.IsSuccessStatusCode)
                 {
-                    var json = await response.Content.ReadAsStringAsync();
-                    var clientes = JsonSerializer.Deserialize<List<Cliente>>(json,options);
-                    return clientes;
+                    MessageBox.Show("Error al obtener las localidades" + response.ReasonPhrase);
+                    return null;
                 }
-                else
-                {
-                    throw new Exception("Error al obtener los clientes" + response.ReasonPhrase);
-                }
+                var json = await response.Content.ReadAsStringAsync();
+                var localidades = JsonSerializer.Deserialize<List<Localidad>>(json, options);
+                return localidades;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al obtener clientes desde la Api: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al obtener localidades desde la Api: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
         }
 
-        public async Task<List<Cliente>?> GetDeletedsAsync()
+        public async Task<List<Localidad>?> GetDeletedsAsync()
         {
             try
             {
@@ -52,22 +50,23 @@ namespace Desktop.Services
                 if (response.IsSuccessStatusCode)
                 {
                     var json = await response.Content.ReadAsStringAsync();
-                    var clientes = JsonSerializer.Deserialize<List<Cliente>>(json, options);
-                    return clientes;
+                    var localidades = JsonSerializer.Deserialize<List<Localidad>>(json, options);
+                    return localidades;
                 }
                 else
                 {
-                    throw new Exception("Error al obtener los clientes" + response.ReasonPhrase);
+                    MessageBox.Show("Error al obtener las localidades" + response.ReasonPhrase);
+                    return null;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al obtener clientes desde la Api: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al obtener localidades desde la Api: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
         }
 
-        public async Task<List<Cliente>?> GetAllWithFilterAsync(string filter)
+        public async Task<List<Localidad>?> GetAllWithFilterAsync(string filter)
         {
             try
             {
@@ -75,61 +74,62 @@ namespace Desktop.Services
                 if (response.IsSuccessStatusCode)
                 {
                     var json = await response.Content.ReadAsStringAsync();
-                    var clientes = JsonSerializer.Deserialize<List<Cliente>>(json, options);
-                    return clientes;
+                    var localidades = JsonSerializer.Deserialize<List<Localidad>>(json, options);
+                    return localidades;
                 }
                 else
                 {
-                    throw new Exception("Error al obtener los clientes" + response.ReasonPhrase);
+                   MessageBox.Show("Error al obtener las localidades" + response.ReasonPhrase);
+                   return null;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al obtener clientes desde la Api: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al obtener localidades desde la Api: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
         }
 
-        public async Task<bool> AddClienteAsync(Cliente cliente)
+        public async Task<bool> AddLocalidadAsync(Localidad localidad)
         {
             try
             {
-                var json = JsonSerializer.Serialize(cliente, options);
-                var clienteJson = new StringContent(json, Encoding.UTF8, "application/json");
-                var response = await httpClient.PostAsync("", clienteJson);
+                var json = JsonSerializer.Serialize(localidad, options);
+                var localidadJson = new StringContent(json, Encoding.UTF8, "application/json");
+                var response = await httpClient.PostAsync("", localidadJson);
                 if (!response.IsSuccessStatusCode)
                 {
-                    MessageBox.Show("Error al crear el cliente: " + response.ReasonPhrase);
+                    MessageBox.Show("Error al crear la localidad: " + response.ReasonPhrase);
                     return false; 
                 }
                 return true;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al crear el cliente desde la Api: " + ex.Message);
+                MessageBox.Show("Error al crear la localidad desde la Api: " + ex.Message);
                 return false;
             }
 
         }
 
-        public async Task<bool> UpdateClienteAsync(Cliente cliente)
+        public async Task<bool> UpdateLocalidadAsync(Localidad localidad)
         {
             try
             {
-                var json = JsonSerializer.Serialize(cliente, options);
-                var clienteJson = new StringContent(json, Encoding.UTF8, "application/json");
-                string idCliente = cliente.Id.ToString();
-                var response = await httpClient.PutAsync(idCliente, clienteJson);
+                var json = JsonSerializer.Serialize(localidad, options);
+                var localidadJson = new StringContent(json, Encoding.UTF8, "application/json");
+                string idLocalidad = localidad.Id.ToString();
+                var response = await httpClient.PutAsync(idLocalidad, localidadJson);
                 if (!response.IsSuccessStatusCode)
                 {
-                    MessageBox.Show("Error al actualizar el cliente: " + response.ReasonPhrase);
+                    MessageBox.Show("Error al actualizar la localidad: " + response.ReasonPhrase);
                     return false; 
                 }
                 return true;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al actualizar el cliente desde la Api: " + ex.Message);
+                MessageBox.Show("Error al actualizar la localidad desde la Api: " + ex.Message);
                 return false;
             }
         }
@@ -141,7 +141,7 @@ namespace Desktop.Services
             var urlApi = Environment.GetEnvironmentVariable("URLAPILOCAL");
             //instanciamos el httpClient y lo configuramos para poder utilizarlo en cada uno de los métodos
             var httpClient = new HttpClient();
-            httpClient.BaseAddress = new Uri(urlApi+"Clientes/");
+            httpClient.BaseAddress = new Uri(urlApi+"Localidades/");
             //agregamos apikey de la url
             httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
             httpClient.DefaultRequestHeaders.Add("apikey", urlApi);   
@@ -159,7 +159,7 @@ namespace Desktop.Services
 
         }
 
-        public async Task<bool> DeleteClienteAsync(int? id)
+        public async Task<bool> DeleteLocalidadAsync(int? id)
         {
             try
             {
@@ -171,19 +171,19 @@ namespace Desktop.Services
                 }
                 else
                 {
-                    MessageBox.Show("Error al eliminar el cliente: " + response.ReasonPhrase);
+                    MessageBox.Show("Error al eliminar la localidad: " + response.ReasonPhrase);
                     return false;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al eliminar el cliente desde la Api: " + ex.Message);
+                MessageBox.Show("Error al eliminar la localidad desde la Api: " + ex.Message);
                 return false;
             }
             
         }
 
-        public async Task<bool> RestoreClienteAsync(int? id)
+        public async Task<bool> RestoreLocalidadAsync(int? id)
         {
             try
             {
@@ -195,13 +195,13 @@ namespace Desktop.Services
                 }
                 else
                 {
-                    MessageBox.Show("Error al eliminar el cliente: " + response.ReasonPhrase);
+                    MessageBox.Show("Error al restaurar la localidad: " + response.ReasonPhrase);
                     return false;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al eliminar el cliente desde la Api: " + ex.Message);
+                MessageBox.Show("Error al restaurar la localidad desde la Api: " + ex.Message);
                 return false;
             }
             
