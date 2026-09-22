@@ -21,13 +21,13 @@ internal class Program
            .Build();
 
         //string cadenaConexion = configuration.GetConnectionString("");
-        var cadenaConexion = configuration.GetConnectionString("postgresLocal");
-        //var cadenaConexion = configuration.GetConnectionString("postgresRemote");
+        //var cadenaConexion = configuration.GetConnectionString("postgresLocal");
+        var cadenaConexion = configuration.GetConnectionString("postgresRemote");
 
         builder.Services.AddDbContext<InventarioContext>(
             options => options.UseNpgsql(cadenaConexion));
 
-        // Configurar una política de CORS
+        // Configurar una polï¿½tica de CORS
         builder.Services.AddCors(options =>
         {
             options.AddPolicy("AllowSpecificOrigins",
