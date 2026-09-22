@@ -1,12 +1,8 @@
 ﻿using Services.Models;
 using DotNetEnv;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace Desktop.Services
 {
@@ -25,7 +21,7 @@ namespace Desktop.Services
         {
             try
             {
-                var response = await httpClient.GetAsync(urlApi);
+                var response = await httpClient.GetAsync("");
                 if (!response.IsSuccessStatusCode)
                 {
                     MessageBox.Show("Error al obtener las localidades" + response.ReasonPhrase);

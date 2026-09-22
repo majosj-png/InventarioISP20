@@ -1,19 +1,15 @@
 ﻿using Services.Models;
 using DotNetEnv;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace Desktop.Services
 {
     public class ClientesApiService
     {
         HttpClient httpClient;
-        const string urlApi = null; // Endpoint
+        string urlApi; // Endpoint
         JsonSerializerOptions options;
         public ClientesApiService()
         {
@@ -25,7 +21,7 @@ namespace Desktop.Services
         {
             try
             {
-                var response = await httpClient.GetAsync(urlApi);
+                var response = await httpClient.GetAsync("");
                 if (response.IsSuccessStatusCode)
                 {
                     var json = await response.Content.ReadAsStringAsync();
@@ -138,7 +134,7 @@ namespace Desktop.Services
         {
             Env.Load("../../../");
             //var urlApi = Environment.GetEnvironmentVariable("URLAPI");
-            var urlApi = Environment.GetEnvironmentVariable("URLAPILOCAL");
+            urlApi = Environment.GetEnvironmentVariable("URLAPILOCAL");
             //instanciamos el httpClient y lo configuramos para poder utilizarlo en cada uno de los métodos
             var httpClient = new HttpClient();
             httpClient.BaseAddress = new Uri(urlApi+"Clientes/");

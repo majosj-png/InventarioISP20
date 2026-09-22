@@ -14,5 +14,10 @@ namespace Services.Models
         public Pais? Pais { get; set; } = null;
         public bool IsDeleted { get; set; } = false;
 
+        public override string ToString()
+        {
+            return Name;
+        }
+
     }
 }

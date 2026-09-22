@@ -1,6 +1,5 @@
 ﻿using Services.Models;
 using Desktop.Services;
-using System.Runtime.CompilerServices;
 
 namespace Desktop.Views
 {
@@ -21,9 +20,9 @@ namespace Desktop.Views
            var localidades = await localidadesApiService.GetAllAsync();
             if (localidades != null)
             {
-                comboLocalidades.DataSource = localidades;
                 comboLocalidades.DisplayMember = "Name";
                 comboLocalidades.ValueMember = "Id";
+                comboLocalidades.DataSource = localidades;
                 comboLocalidades.SelectedValue = -1; // No seleccionar ningún elemento por defecto
             }
         }
@@ -43,6 +42,7 @@ namespace Desktop.Views
             txtApellido.Clear();
             txtDni.Clear();
             txtDireccion.Clear();
+            comboLocalidades.SelectedIndex = -1;
         }
 
         private async void btnBuscar_Click(object sender, EventArgs e)
@@ -56,6 +56,7 @@ namespace Desktop.Views
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            ClearTextBox();
             this.tabControlLista.SelectedTab = tabPageAgregarEditar;
         }
 
@@ -73,7 +74,7 @@ namespace Desktop.Views
             txtApellido.Text = clienteApiModificado.Lastname;
             txtDni.Text = clienteApiModificado.Dni;
             txtDireccion.Text = clienteApiModificado.Address;
-            if (clienteApiModificado.LocalidadId != null)
+            if (clienteApiModificado.LocalidadId != 0)
             {
                 comboLocalidades.SelectedValue = clienteApiModificado.LocalidadId;
             }
@@ -90,7 +91,7 @@ namespace Desktop.Views
                 Lastname = txtApellido.Text,
                 Dni = txtDni.Text,
                 Address = txtDireccion.Text,
-                LocalidadId = 1 // Asignar un valor predeterminado para LocalidadId
+                LocalidadId = comboLocalidades.SelectedValue != null ? (int)comboLocalidades.SelectedValue : 0,
             };
             if (clienteApiModificado == null)
             {
@@ -100,7 +101,7 @@ namespace Desktop.Views
             {
                 cliente.Id = clienteApiModificado.Id;
                 cliente.Created_at = clienteApiModificado.Created_at;
-                cliente.LocalidadId = clienteApiModificado.LocalidadId;
+                //cliente.LocalidadId = clienteApiModificado.LocalidadId;
                 clienteGuardado = await clientesApiService.UpdateClienteAsync(cliente);
             }
 
@@ -200,16 +201,14 @@ namespace Desktop.Views
                 if (result == DialogResult.Yes)
                 {
                     //restauramos el cliente
-                    var clienteRestaurado = await clientesApiService.RestoreClienteAsync(clienteARetaurado.Id);
-                    if (clienteRestaurado)
-                    {
-                        MessageBox.Show($"Cliente {clienteARetaurado.Firstname} {clienteARetaurado.Lastname} restaurado correctamente");
-                        await LoadClientes();
-                    }
-                    else
+                    bool clienteRestaurado = await clientesApiService.RestoreClienteAsync(clienteARetaurado.Id);
+                    if (!clienteRestaurado)
                     {
                         MessageBox.Show("Error al restaurar el cliente");
+                        return;
                     }
+                    MessageBox.Show($"Cliente {clienteARetaurado.Firstname} {clienteARetaurado.Lastname} restaurado correctamente");
+                    await LoadDeleteds();
                 }
                 else
                 {

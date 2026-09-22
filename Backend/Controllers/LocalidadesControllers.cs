@@ -25,7 +25,11 @@ namespace Backend.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Localidad>>> GetLocalidades()
         {
-            return await _context.Localidades.ToListAsync();
+            return await _context.Localidades
+                .IgnoreQueryFilters()
+                .Include(l => l.Provincia)
+                .ThenInclude(p => p.Pais)
+                .ToListAsync();
         }
 
         // GET: api/Localidades/5

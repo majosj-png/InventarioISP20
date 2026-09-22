@@ -27,6 +27,16 @@ internal class Program
         builder.Services.AddDbContext<InventarioContext>(
             options => options.UseNpgsql(cadenaConexion));
 
+        // Configurar una política de CORS
+        builder.Services.AddCors(options =>
+        {
+            options.AddPolicy("AllowSpecificOrigins",
+                builder => builder
+                    .WithOrigins("http://localhost:5173", "http://sitioweb.com.ar")
+                    .AllowAnyHeader()
+                    .AllowAnyMethod());
+        });
+
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
@@ -35,6 +45,8 @@ internal class Program
             app.UseSwagger();
             app.UseSwaggerUI();
         }
+
+        app.UseCors("AllowSpecificOrigins");  //permiso de cors
 
         app.UseHttpsRedirection();
 

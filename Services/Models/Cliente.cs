@@ -9,7 +9,7 @@ namespace Services.Models
 {
     public class Cliente
     {
-        [Browsable(false)]
+        //[Browsable(false)]
         public int Id { get; set; } = 0;
        
         [DisplayName("Fecha de creacion")]
@@ -26,7 +26,7 @@ namespace Services.Models
         [DisplayName("Direccion")]
         public string Address { get; set; }= string.Empty;
        
-        [Browsable(false)]
+        //[Browsable(false)]
         public int LocalidadId { get; set; } = 0;
 
         public Localidad? Localidad { get; set; }
