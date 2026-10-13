@@ -174,7 +174,6 @@
             subMenuListadoClientes.Name = "subMenuListadoClientes";
             subMenuListadoClientes.Size = new Size(85, 24);
             subMenuListadoClientes.Text = "Reportes";
-            subMenuListadoClientes.Click += subMenuListadoClientes_Click;
             // 
             // subMenuListadoDeClientes
             // 

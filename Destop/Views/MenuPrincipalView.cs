@@ -73,12 +73,6 @@ namespace Desktop.Views
             localidadesApiView.ShowDialog();
         }
 
-        private void subMenuListadoClientes_Click(object sender, EventArgs e)
-        {
-            
-
-        }
-
         private void subMenuListadoDeClientes_Click(object sender, EventArgs e)
         {
             ClientesViewReports clientesViewReports = new();
