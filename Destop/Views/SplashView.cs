@@ -66,7 +66,7 @@ namespace Desktop.Views
                 ReportViewer _report = new ReportViewer();
                 _report.LocalReport.ReportEmbeddedResource = "Desktop.Reports.Clientes.rdlc";
 
-                var clientes = new List<Cliente>();
+                var clientes = new List<Cliente>
                 {
                     new Cliente { Id = 1, Firstname = "Juan", Lastname = "Pérez", Address = "Calle Falsa 123", Dni = "12345678" }
                 };
