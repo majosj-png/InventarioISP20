@@ -3,7 +3,7 @@
   <Body>
     <ReportItems>
       <Line Name="Line1">
-        <Top>0.52599cm</Top>
+        <Top>0.6cm</Top>
         <Height>0cm</Height>
         <Width>16.51cm</Width>
         <Style>
@@ -27,6 +27,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
+        <Top>0.07401cm</Top>
         <Height>0.52599cm</Height>
         <Width>2.94662cm</Width>
         <ZIndex>1</ZIndex>
@@ -55,9 +56,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
+        <Top>0.07401cm</Top>
         <Left>5.71183cm</Left>
         <Height>0.52599cm</Height>
-        <Width>3.37312cm</Width>
+        <Width>2.63229cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -84,9 +86,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
+        <Top>0.07401cm</Top>
         <Left>10.52724cm</Left>
         <Height>0.52599cm</Height>
-        <Width>4.06104cm</Width>
+        <Width>2.92333cm</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -102,7 +105,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>11.68104cm</Width>
+              <Width>17.12828cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -158,7 +161,7 @@
                           </Paragraphs>
                           <rd:DefaultName>Firstname</rd:DefaultName>
                           <Top>0.15875cm</Top>
-                          <Left>3.22792cm</Left>
+                          <Left>2.73813cm</Left>
                           <Height>0.6cm</Height>
                           <Width>2.5cm</Width>
                           <ZIndex>1</ZIndex>
@@ -188,7 +191,7 @@
                           </Paragraphs>
                           <rd:DefaultName>Dni</rd:DefaultName>
                           <Top>0.15875cm</Top>
-                          <Left>6.27063cm</Left>
+                          <Left>5.71183cm</Left>
                           <Height>0.6cm</Height>
                           <Width>1.865cm</Width>
                           <ZIndex>2</ZIndex>
@@ -218,10 +221,70 @@
                           </Paragraphs>
                           <rd:DefaultName>Address</rd:DefaultName>
                           <Top>0.15875cm</Top>
-                          <Left>8.75771cm</Left>
+                          <Left>10.52724cm</Left>
                           <Height>0.6cm</Height>
                           <Width>2.92333cm</Width>
                           <ZIndex>3</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Id">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Id.Value</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Id</rd:DefaultName>
+                          <Top>0.15875cm</Top>
+                          <Left>8.34412cm</Left>
+                          <Height>0.6cm</Height>
+                          <Width>1.46311cm</Width>
+                          <ZIndex>4</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Localidad">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Localidad.Value</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Localidad</rd:DefaultName>
+                          <Top>0.15875cm</Top>
+                          <Left>13.62696cm</Left>
+                          <Height>0.6cm</Height>
+                          <Width>2.5cm</Width>
+                          <ZIndex>5</ZIndex>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -259,10 +322,9 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DSClientes</DataSetName>
-        <Top>1.29646cm</Top>
-        <Left>0.68474cm</Left>
+        <Top>0.8504cm</Top>
         <Height>2.5cm</Height>
-        <Width>11.68104cm</Width>
+        <Width>17.12828cm</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
@@ -270,11 +332,70 @@
           </Border>
         </Style>
       </Tablix>
+      <Textbox Name="Textbox6">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Id</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox6</rd:DefaultName>
+        <Top>0.07401cm</Top>
+        <Left>8.34412cm</Left>
+        <Height>0.6cm</Height>
+        <Width>1.78562cm</Width>
+        <ZIndex>5</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox7">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Localidad</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox7</rd:DefaultName>
+        <Left>13.62696cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
+        <ZIndex>6</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>2in</Height>
+    <Height>2.02914in</Height>
     <Style />
   </Body>
-  <Width>6.51042in</Width>
+  <Width>6.9205in</Width>
   <Page>
     <PageHeader>
       <Height>3.06599cm</Height>
@@ -370,6 +491,14 @@
         </Field>
         <Field Name="Address">
           <DataField>Address</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Id">
+          <DataField>Id</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Localidad">
+          <DataField>Localidad</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>

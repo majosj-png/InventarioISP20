@@ -1,8 +1,8 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <TargetFramework>net9.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -13,7 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Reports\Localidades.rdlc" />
     <EmbeddedResource Include="Reports\Clientes.rdlc" />
   </ItemGroup>
 
@@ -33,11 +32,6 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>DataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Update="Datasets\Localidades.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Localidades.xsd</DependentUpon>
     </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
@@ -63,10 +57,6 @@
     <None Update="Datasets\DataSet1.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
-    </None>
-    <None Update="Datasets\Localidades.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Localidades.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
 
